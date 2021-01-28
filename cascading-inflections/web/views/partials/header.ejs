@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Cascading Inflections - <%= title %></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="/pure.min.css"
+    />
+    <style>
+        .home-menu {
+            padding: 0.5em;
+            text-align: center;
+            box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+            text-align: left;
+            background: #2d3e50;
+        }
+
+        .home-menu .pure-menu-heading {
+            color: white;
+            font-weight: 400;
+            font-size: 120%;
+        }
+
+        .home-menu .pure-menu-selected a {
+            color: white;
+        }
+
+        .home-menu a {
+            color: #6FBEF3;
+        }
+        .home-menu li a:hover,
+        .home-menu li a:focus {
+            background: none;
+            border: none;
+            color: #AECFE5;
+        }
+
+        .home-menu ul {
+            float: right;
+        }
+
+        .content-container{
+            padding: 78px 25px 20px;
+        }
+
+        .button-error {
+            background: rgb(214, 142, 142);
+            color: white;
+            border: 2px solid rgb(202, 60, 60);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            margin: auto;
+            width: 100%;
+            cursor: default;
+        }
+
+        .message-block {
+            margin-top: 20px;
+        }
+
+        .message-sender {
+            border: 1px solid #ccc;
+            box-shadow: inset 0 1px 3px #ddd;
+            border-radius: 4px 4px 0 0;
+            padding: 8px;
+            margin: 0;
+        }
+
+        .message-message {
+            border: 1px solid #ccc;
+            box-shadow: inset 0 1px 3px #ddd;
+            border-radius: 0 0 4px 4px;
+            padding: 8px;
+            margin: 0;
+            max-height: 200px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+        }
+
+        .message-container {
+            position: fixed;
+            right: 30px;
+            top: 90px;
+            width: 400px;
+            box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.75);
+        }
+
+        .message-container-hidden {
+            right: -500px;
+        }
+
+        .message-header {
+            background: #2d3e50;
+            color: white;
+            margin: 0;
+            padding: 15px;
+        }
+
+        .message-container-body {
+            padding: 15px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var $msgWindow = document.getElementById("messages");
+            var $msgToggle = document.getElementById("message-toggle");
+            $msgToggle.addEventListener("click", function(evt) {
+                evt.preventDefault();
+                if ($msgWindow.classList.contains('message-container-hidden')) {
+                    $msgWindow.classList.remove('message-container-hidden');
+                } else {
+                    $msgWindow.classList.add('message-container-hidden');
+                }
+            });
+        });
+    </script>
+  </head>
+
+  <body>
+    <div class="message-container message-container-hidden" id="messages">
+        <% if (user) { %>
+        <h3 class="message-header">Messages</h3>
+        <div class="message-container-body">
+            <form action="/message" method="POST" class="pure-form">
+                <fieldset class="pure-group">
+                    <select name="recipient" class="pure-input-1">
+                    <% users.forEach((recipient) => { if (recipient.id !== user.id ) { %>
+                    <option value="<%= recipient.id %>"><%= recipient.username %></option>
+                    <% } }); %>
+                    </select>
+                <textarea name="message" class="pure-input-1" style="height: 150px"></textarea>
+                <button type="submit" class="pure-button pure-button-primary pure-input-1">Send Message</button>
+                </fieldset>
+            </form>
+            
+            <% messages.reverse().forEach((message) => { %>
+            <div class="message-block">
+                <p class="message-sender">From: <%= message.sender %></p>
+                <pre class="message-message"><%- message.message %></pre>
+            </div>
+            <% }); %>
+        </div>
+        <% } %>
+    </div>
+    <div class="header">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="/">Cascading Inflections</a>
+
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+            <% if (user) { %>
+            <li class="pure-menu-item"><a href="/profile" class="pure-menu-link">Profile</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="message-toggle">Messages</a></li>
+            <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">Log Out</a></li>
+            <% } else { %>
+            <li class="pure-menu-item"><a href="/login" class="pure-menu-link">Login</a></li>
+            <li class="pure-menu-item"><a href="/register" class="pure-menu-link">Register</a></li>
+            <% } %>
+        </ul>
+    </div>
+    </div>
+    <div class="content-container">
+    <div class="pure-g">

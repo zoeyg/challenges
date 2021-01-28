@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Excessive Punching Loophole</title>
+        <style>
+            body {
+                height: 100%;
+                margin: 0;
+            }
+
+            .container {
+                height: 100%;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .row {
+                width: auto;
+            }
+
+            .item {
+                padding: 5px;
+                margin: 10px;
+                line-height: 20px;
+            }
+
+            textarea {
+                width: 500px;
+                height: 500px;
+                text-align: left;
+            }
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var plugins = window.plugins || {};
+                for(var i = 0; i < plugins.length; i++) {
+					var se = document.createElement('script');
+                    se.src = plugins[i];
+                    document.body.appendChild(se);
+				}
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="item" style="text-align: center">
+                    Submit your content for review by the administrator
+                </div class="item">
+                    <form action="/report" method="POST" class="item">
+                        <textarea name="report"></textarea><br><br>
+                        <input type="submit" value="Submit" style="float: right;">
+                    </form>
+            </div>
+        </div>
+    </body>
+</html>

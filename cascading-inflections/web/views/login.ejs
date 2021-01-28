@@ -1,0 +1,24 @@
+<%- include('partials/header', { title: 'Login' }); %>
+<div class="pure-u-2-5" style="margin: auto">
+<form action="/login" method="POST" class="pure-form pure-form-aligned">
+  <fieldset>
+    <div class="pure-control-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" />
+    </div>
+    <div class="pure-control-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" />
+    </div>
+    <div class="pure-control-group">
+			<% if (typeof error != "undefined") { %>
+			<div id="error" class="pure-button button-error"><%= error %></div>
+			<% } %>
+		</div>
+    <div class="pure-controls">
+      <button type="submit" class="pure-button pure-button-primary" id="submit">Login</button>
+    </div>
+  </fieldset>
+</form>
+</div>
+<%- include('partials/footer'); %>

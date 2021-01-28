@@ -1,0 +1,40 @@
+<%- include('partials/header', { title: 'Home' }); %>
+<div class="pure-u-3-5" style="margin: auto">
+<% if (!user) { %>
+<p>
+  Welcome! Please <a href="/login">log in</a> or
+  <a href="/register">register</a>.
+</p>
+<% } else { %>
+<h3>Hello, <%= user.username %>. View your <a href="/profile">profile</a>.</h3>
+<br>
+<br>
+<div>
+  <h2>Tipping point for large-scale social change</h2>
+  <p>A new study finds that when 25 percent of people in a group adopt a new social norm, it creates a tipping point where the entire group follows suit. This shows the direct causal effect of the size of a committed minority on its capacity to create social change.</p>
+  <p><a href="https://www.sciencedaily.com/releases/2018/06/180607141009.htm">https://www.sciencedaily.com/releases/2018/06/180607141009.htm</a></p>
+</div>
+<br>
+<br>
+<div>
+  <h2>This Is How Fast America Changes Its Mind</h2>
+  <p>Eleven years after Massachusetts became the first state to allow same-sex couples to marry, the Supreme Court has now extended that right nationwide. The decision came after a wave of gay marriage legalization: 28 states from 2013 to 2015, with 36 overall prior to the Court's ruling. Such widespread acceptance in a short amount of time isn't a phenomenon unique to gay marriage. Social change in the U.S. appears to follow a pattern: A few pioneer states get out front before the others, and then a key event—often a court decision or a grassroots campaign reaching maturity—triggers a rush of state activity that ultimately leads to a change in federal law.
+
+    We looked at six big issues—interracial marriage, prohibition, women’s suffrage, abortion, same-sex marriage, and recreational marijuana — to show how this has happened in the past, and may again in the very near future.</p>
+  <p><a href="https://www.bloomberg.com/graphics/2015-pace-of-social-change/">https://www.bloomberg.com/graphics/2015-pace-of-social-change/</a></p>
+</div>
+<br>
+<br>
+<div>
+  <h2>Local cascades induced global contagion: How heterogeneous thresholds, exogenous effects, and unconcerned behaviour govern online adoption spreading</h2>
+  <p>Adoption of innovations, products or online services is commonly interpreted as a spreading process driven to large extent by social influence and conditioned by the needs and capacities of individuals. To model this process one usually introduces behavioural threshold mechanisms, which can give rise to the evolution of global cascades if the system satisfies a set of conditions. However, these models do not address temporal aspects of the emerging cascades, which in real systems may evolve through various pathways ranging from slow to rapid patterns. Here we fill this gap through the analysis and modelling of product adoption in the world’s largest voice over internet service, the social network of Skype. We provide empirical evidence about the heterogeneous distribution of fractional behavioural thresholds, which appears to be independent of the degree of adopting egos. We show that the structure of real-world adoption clusters is radically different from previous theoretical expectations, since vulnerable adoptions—induced by a single adopting neighbour—appear to be important only locally, while spontaneous adopters arriving at a constant rate and the involvement of unconcerned individuals govern the global emergence of social spreading.</p>
+  <p><a href="https://www.nature.com/articles/srep27178">https://www.nature.com/articles/srep27178</a></p>
+  <br>
+  <br>
+  <br>
+</div>
+<a href="#more">More...</a>
+
+<% } %>
+</div>
+<%- include('partials/footer'); %>

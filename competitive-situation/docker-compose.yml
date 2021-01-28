@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: CHANGE-ME-IN-PROD
+
+  web:
+    build:
+      dockerfile: Dockerfile
+      context: ./web
+    depends_on:
+      - 'db'
+    restart: always
+    ports:
+      - 3003:3000/tcp
