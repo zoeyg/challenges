@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Superfund Admin URL Submission</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/base-min.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/forms-min.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <div class="flex-container">
+    <div class="row"> 
+        <div class="flex-item">
+          <p id=msg></p>
+          <p>Submit your url and the admin will visit it shortly</p>
+          <form action="/submit-url" method="POST">
+            <span>https://superfund-challenge.2r.is/</span>
+            <input id="url" type="text" name="url" value="" placeholder="url/goes/here"><br><br>
+            <input class="submit" type="submit" value="Submit">
+          </form> 
+        </div>
+    </div>
+  </div>
+  <script>
+    window.onload = () => {
+      const params = new URLSearchParams(document.location.search);
+      let urlParam;
+      if (params.has('url')) {
+        const urlElem = document.getElementById('url');
+        urlParam = params.get('url');
+        urlElem.value = urlParam;
+      }
+      if (params.has('msg')) {
+        const msgElem = document.getElementById('msg');
+        const msg = params.get('msg');
+        if (msg.includes('Error')) {
+          msgElem.setAttribute("style", "color: red");
+          msgElem.innerText = msg;
+        } else {
+          msgElem.setAttribute("style", "color: lime");
+          msgElem.innerText = msg + ': https://superfund-challenge.2r.is/' + urlParam;
+        }
+      }
+    };
+  </script>
+</body>
+
+</html>

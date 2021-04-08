@@ -2,3 +2,7 @@ node_modules
 .vscode/
 app.db
 .env*
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
