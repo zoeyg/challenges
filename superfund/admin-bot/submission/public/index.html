@@ -22,7 +22,7 @@
           <p id=msg></p>
           <p>Submit your url and the admin will visit it shortly</p>
           <form action="/submit-url" method="POST">
-            <span>https://superfund-challenge.2r.is/</span>
+            <span>https://superfund.2r.is/</span>
             <input id="url" type="text" name="url" value="" placeholder="url/goes/here"><br><br>
             <input class="submit" type="submit" value="Submit">
           </form> 
@@ -46,7 +46,7 @@
           msgElem.innerText = msg;
         } else {
           msgElem.setAttribute("style", "color: lime");
-          msgElem.innerText = msg + ': https://superfund-challenge.2r.is/' + urlParam;
+          msgElem.innerText = msg + ': https://superfund.2r.is/' + urlParam;
         }
       }
     };

@@ -39,7 +39,7 @@ const initialize = async () => {
 
       ctx = await browser.createIncognitoBrowserContext();
       const page = await ctx.newPage();
-      await page.goto('https://superfund-challenge.2r.is/admin/', {
+      await page.goto('https://superfund.2r.is/admin/', {
         timeout: 3000,
         waitUntil: 'domcontentloaded'
       });
@@ -48,7 +48,7 @@ const initialize = async () => {
         page.click("input[type=submit]"),
         page.waitForNavigation({ waitUntil: 'networkidle0' }),
       ]);
-      await page.goto('https://superfund-challenge.2r.is/' + url, {
+      await page.goto('https://superfund.2r.is/' + url, {
         timeout: 3000,
         waitUntil: 'domcontentloaded'
       });

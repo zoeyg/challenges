@@ -22,7 +22,7 @@ EXPOSE 8080
 ENV NODE_ENV="production"
 ENV FLAG="shaktictf{_3nv120nm3n741_ju571c3_}"
 ENV ADMIN_PASSWORD="jloguVrx9TfGDJV1nA04jGoUxOny5XZG"
-ENV DOMAIN="superfund-challenge.2r.is"
+ENV DOMAIN="superfund.2r.is"
 ENV PORT="8080"
 ENV TLS="true"
 #ENV DEBUG="yup" # or "express:*"
