@@ -1,4 +1,4 @@
-# [Superfund](https://superfund.2r.is)
+# [Superfund.2r.is](https://superfund.2r.is)
 
 ## Description
 
