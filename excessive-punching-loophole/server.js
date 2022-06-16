@@ -32,7 +32,7 @@ async function initialize() {
   app.use(require("body-parser").urlencoded({ extended: true }));
   app.use((req, res, next) => {
     console.log(req.method, req.url, req.headers['user-agent']);
-    res.set('Content-Security-Policy', "object-src 'none'; script-src 'unsafe-eval' https://cdnjs.cloudflare.com/ajax/libs/jquery/ 'sha256-Q5N0cw09nnZl0+fIqYsMHGZxS/dEhotEcCaA5qphoug='; style-src 'unsafe-inline'")
+    res.set('Content-Security-Policy', "object-src 'none'; script-src 'unsafe-eval' https://cdnjs.cloudflare.com 'sha256-Q5N0cw09nnZl0+fIqYsMHGZxS/dEhotEcCaA5qphoug='; style-src 'unsafe-inline'")
     next();
   });
   app.use(express.static('static'));

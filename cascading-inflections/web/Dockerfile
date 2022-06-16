@@ -1,4 +1,4 @@
-FROM node:lts-alpine3.12
+FROM node:lts-alpine
 
 RUN \
   echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
@@ -8,6 +8,11 @@ RUN \
   && apk --no-cache  upgrade \
   && apk add --no-cache --virtual .build-deps ttf-opensans chromium \
   && rm -rf /var/cache/apk/* /tmp/*
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN python3 -m ensurepip
+RUN pip3 install --no-cache --upgrade pip setuptools
+RUN apk add --no-cache build-base
 
 WORKDIR /usr/src/app
 ENV CHROME_BIN=/usr/bin/chromium-browser
